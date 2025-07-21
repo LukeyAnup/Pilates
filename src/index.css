@@ -1,0 +1,44 @@
+@import "tailwindcss";
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500&display=swap"); */
+
+@theme {
+  --color-primary: #829488;
+  --color-secondary: #f5f3ec;
+}
+
+/* @layer base {
+  h1 {
+    @apply text-[32px] font-bold leading-tight;
+    font-family: "Playfair Display", serif;
+  }
+
+  h2 {
+    @apply text-[24px] font-semibold leading-snug;
+    font-family: "Playfair Display", serif;
+  }
+
+  h3 {
+    @apply text-[18px] font-medium leading-snug;
+    font-family: "Playfair Display", serif;
+  }
+
+  h4 {
+    @apply text-[16px] font-medium;
+    font-family: "Playfair Display", serif;
+  }
+
+  h5 {
+    @apply text-[14px] font-medium;
+    font-family: "Playfair Display", serif;
+  }
+
+  h6 {
+    @apply text-[12px] font-medium;
+    font-family: "Playfair Display", serif;
+  }
+
+  p {
+    @apply text-[14px] leading-[22px];
+    font-family: "Montserrat", sans-serif;
+  }
+} */
