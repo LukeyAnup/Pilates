@@ -53,7 +53,7 @@ export default function JoinOurClass() {
       <section className="hidden md:block mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-10 ml-36 items-center">
           <div className="max-w-xl space-y-6 ">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">{heading}</h2>
+            <h1 className="text-primary">{heading}</h1>
             <button className="inline-block px-20 py-2 text-primary cursor-pointer border">
               Learn More
             </button>

@@ -50,10 +50,10 @@ export default function WhyChooseUs() {
       )}
 
       <div className="text-white space-y-10">
-        <p className="md:text-6xl text-2xl font-bold mb-4">{heading}</p>
-        <p className="leading-relaxed">{description}</p>
+        <h1 className="font-playfair">{heading}</h1>
+        <p className="font-montserrat">{description}</p>
         <button className="hidden md:block px-20 py-2 cursor-pointer border">
-          Learn More
+          <p>Learn More</p>
         </button>
       </div>
     </section>

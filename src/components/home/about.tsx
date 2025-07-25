@@ -52,12 +52,13 @@ export default function About() {
       <section className="max-w-6xl hidden md:block mx-auto pt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="space-y-10 bg-[#F3F0E7CC] p-12">
-            <p className="text-6xl font-bold capitalize text-primary">
+            <h1 className="capitalize text-primary font-playfair">
               {aboutData.aboutHeading}
-            </p>
-            <p className="leading-relaxed">{aboutData.aboutDescription}</p>
-            <button className="inline-block px-20 py-2 text-primary cursor-pointer border">
-              Learn More
+            </h1>
+
+            <p className="font-montserrat">{aboutData.aboutDescription}</p>
+            <button className="px-20 py-2 text-primary cursor-pointer border">
+              <p className="font-montserrat">Learn More</p>
             </button>
           </div>
 
@@ -72,9 +73,9 @@ export default function About() {
       </section>
       {/* //Mobile view */}
       <section className="relative md:hidden max-w-6xl mx-auto">
-        <p className="text-3xl md:hidden py-10 px-9 font-semibold md:font-bold capitalize text-primary">
+        <h1 className="md:hidden py-8 px-9 font-playfair capitalize text-primary">
           {aboutData.aboutHeading}
-        </p>
+        </h1>
         <div className="relative">
           {imgUrl && (
             <img
@@ -84,12 +85,12 @@ export default function About() {
             />
           )}
           <div className="absolute top-97 right-9 space-y-6 bg-[#F3F0E7] md:bg-[#F3F0E7CC] p-12">
-            <p className="text-6xl hidden md:block font-bold capitalize text-primary">
+            <p className="hidden md:block font-bold capitalize text-primary">
               {aboutData.aboutHeading}
             </p>
-            <p className="leading-relaxed">{aboutData.aboutDescription}</p>
-            <button className="inline-block px-20 py-2 text-primary cursor-pointer border">
-              Learn More
+            <p className="font-montserrat">{aboutData.aboutDescription}</p>
+            <button className="px-20 py-2 text-primary cursor-pointer border">
+              <p className="font-montserrat">Learn More</p>
             </button>
           </div>
         </div>
