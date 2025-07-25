@@ -61,7 +61,7 @@ export default function Classes() {
   if (!data) return null;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen -mt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Image */}
