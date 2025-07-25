@@ -86,7 +86,9 @@ export default function JoinOurClass() {
       <section className="mx-auto px-9">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="max-w-xl space-y-6 ">
-            <h2 className="text-2xl md:text-4xl font-bold mb-6">{heading}</h2>
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-primary">
+              {heading}
+            </h2>
             <p className="text-lg text-gray-700 whitespace-pre-line">
               {description}
             </p>

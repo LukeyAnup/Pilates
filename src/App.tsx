@@ -1,5 +1,6 @@
 import "./App.css";
-import AboutUs from "./components/about/contact";
+
+import ContactUs from "./components/about/contact";
 import Footer from "./components/footer";
 import Home from "./components/home/home";
 
@@ -7,6 +8,7 @@ import Navbar from "./components/navbar";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Pricing from "./components/pricing/pricing";
+import Classes from "./components/classes/classes";
 
 export default function App() {
   return (
@@ -15,8 +17,9 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/classes" element={<Classes />} />
         </Routes>
       </Router>
 

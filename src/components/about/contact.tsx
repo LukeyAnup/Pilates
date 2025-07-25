@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import type { Asset } from "contentful";
 import client from "../../contentfulClient";
+import phoneSvg from "../../assets/icons/phone.svg";
+import emailSvg from "../../assets/icons/mail.svg";
 
 type AboutUsFields = {
   aboutHeading?: string;
@@ -50,34 +52,36 @@ export default function ContactUs() {
   if (!data) return null;
 
   return (
-    <section className="py-16 px-6 md:px-12">
-      <div className="mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div className="flex flex-col mx-36">
+    <section className="py-8 md:py-16 px-4 sm:px-6 md:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Content Section */}
+        <div className="flex flex-col w-full max-w-lg mx-auto lg:mx-0 lg:max-w-none lg:pr-8">
           {data.aboutHeading && (
-            <h2 className="text-3xl font-semibold font-playfair text-primary">
+            <h2 className="text-2xl sm:text-3xl font-semibold font-playfair text-primary mb-4">
               {data.aboutHeading}
             </h2>
           )}
           {data.aboutSubheading && (
-            <p className="text-lg text-gray-700 font-montserrat leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 font-montserrat leading-relaxed mb-6">
               {data.aboutSubheading}
             </p>
           )}
 
           {/* Simple Contact Form */}
           <form
-            className="space-y-4 mb-6"
+            className="space-y-4 mb-6 w-full"
             onSubmit={(e) => {
               e.preventDefault(); /* handle submit here */
             }}
           >
-            <div className="relative w-96 mb-6">
+            {/* Name Input */}
+            <div className="relative w-full mb-6">
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
-                className="peer w-full border border-gray-300 px-3 pt-5 pb-2 rounded-md placeholder-transparent focus:outline-none focus:border-black"
+                className="peer w-full border border-gray-300 px-3 pt-5 pb-2 placeholder-transparent focus:outline-none focus:border-black"
                 placeholder="Name"
               />
               <label
@@ -88,14 +92,14 @@ export default function ContactUs() {
               </label>
             </div>
 
-            {/* Email */}
-            <div className="relative w-96 mb-6">
+            {/* Email Input */}
+            <div className="relative w-full mb-6">
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
-                className="peer w-full border border-gray-300 px-3 pt-5 pb-2 rounded-md placeholder-transparent focus:outline-none focus:border-black"
+                className="peer w-full border border-gray-300 px-3 pt-5 pb-2 placeholder-transparent focus:outline-none focus:border-black"
                 placeholder="Email"
               />
               <label
@@ -106,14 +110,14 @@ export default function ContactUs() {
               </label>
             </div>
 
-            {/* Phone */}
-            <div className="relative w-96 mb-6">
+            {/* Phone Input */}
+            <div className="relative w-full mb-6">
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 required
-                className="peer w-full border border-gray-300 px-3 pt-5 pb-2 rounded-md placeholder-transparent focus:outline-none focus:border-black"
+                className="peer w-full border border-gray-300 px-3 pt-5 pb-2 placeholder-transparent focus:outline-none focus:border-black"
                 placeholder="Phone"
               />
               <label
@@ -124,32 +128,50 @@ export default function ContactUs() {
               </label>
             </div>
 
+            {/* Submit Button */}
             {data.button && (
               <a
                 href="#"
-                className="inline-block px-20 py-2 mt-8 border border-primary font-medium hover:bg-[#6e8073] hover:text-white transition"
+                className="inline-block w-full sm:w-auto px-12 sm:px-20 py-2 mt-8 border border-primary font-medium hover:bg-[#6e8073] hover:text-white transition text-center"
               >
                 {data.button}
               </a>
             )}
           </form>
 
-          <div className="text-sm flex gap-10 space-y-1">
-            <label>
-              Phone
-              {data.phoneNo && <p>📞 {data.phoneNo}</p>}
-            </label>
-            <label>
-              Email{data.emailAddress && <p>📧 {data.emailAddress}</p>}
-            </label>
+          {/* Contact Information */}
+          <div className="text-sm flex flex-col sm:flex-row gap-4 sm:gap-10 space-y-1 sm:space-y-0">
+            <div className="flex gap-3">
+              <img src={phoneSvg} alt="" />
+              <div>
+                <label className="font-medium text-primary uppercase">
+                  Phone
+                </label>
+                {data.phoneNo && <p className="mt-1"> {data.phoneNo}</p>}
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <img src={emailSvg} alt="" />
+
+              <div>
+                <label className="font-medium text-primary uppercase">
+                  Email
+                </label>
+                {data.emailAddress && (
+                  <p className="mt-1"> {data.emailAddress}</p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
+
+        {/* Image Section */}
         {locationImgUrl && (
-          <div className="relative w-full h-80 md:h-[400px]">
+          <div className="relative w-full h-64 sm:h-80 lg:h-[400px] order-first lg:order-last">
             <img
               src={locationImgUrl}
               alt="Location"
-              className="w-full h-full object-cover shadow-md"
+              className="w-full h-full object-cover"
             />
           </div>
         )}

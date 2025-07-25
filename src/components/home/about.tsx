@@ -27,7 +27,6 @@ export default function About() {
           limit: 1,
           include: 2,
         });
-        client.getContentTypes().then(console.log);
 
         if (res.items.length > 0) {
           setAboutData(res.items[0].fields);
@@ -52,7 +51,7 @@ export default function About() {
       {/* //Desktop view */}
       <section className="max-w-6xl hidden md:block mx-auto pt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-          <div className="space-y-6 bg-[#F3F0E7CC] p-12">
+          <div className="space-y-10 bg-[#F3F0E7CC] p-12">
             <p className="text-6xl font-bold capitalize text-primary">
               {aboutData.aboutHeading}
             </p>

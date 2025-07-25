@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section className="px-9 md:px-4 pt-40 my-10 md:my-64 grid md:grid-cols-2 gap-8 items-center bg-primary">
+    <section className="px-9 md:px-4 pt-20 md:pt-40 my-10 md:my-64 grid md:grid-cols-2 gap-8 items-center bg-primary">
       {imageUrl && (
         <img
           src={`https:${imageUrl}`}
@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
         />
       )}
 
-      <div className="text-white space-y-6">
+      <div className="text-white space-y-10">
         <p className="md:text-6xl text-2xl font-bold mb-4">{heading}</p>
         <p className="leading-relaxed">{description}</p>
         <button className="hidden md:block px-20 py-2 cursor-pointer border">

@@ -51,10 +51,15 @@ export default function Hero() {
           className="absolute inset-0 w-full h-screen object-cover"
         />
       )}
-      <div className="absolute inset-0 bg-[#6B4C3B]/40 "></div>
+      <div className="absolute inset-0 bg-[#000000]/50 "></div>
+
       {logoUrl && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src={logoUrl} alt="Logo" className="h-auto w-auto " />
+          <img
+            src={logoUrl}
+            alt="Logo"
+            className="max-w-xs md:max-w-sm lg:max-w-md h-auto w-auto "
+          />
         </div>
       )}
     </section>

@@ -33,13 +33,13 @@ type PricingFields = {
   title4?: string;
   subTitle1?: string;
   subTitleImg1?: any;
-  title4Des1?: string;
+  title4des1?: string;
   subTitle2?: string;
   subTitleImg2?: any;
-  title4Des2?: string;
+  title4des2?: string;
   subTitle3?: string;
   subTitleImg3?: any;
-  title4Des3?: string;
+  title4des3?: string;
   button?: string;
 };
 
@@ -86,9 +86,13 @@ const Pricing = () => {
           </h1>
 
           <div className="grid md:grid-cols-4 gap-8">
-            <img src={data?.titleThreeImg?.fields?.file?.url} alt="" />
+            <img
+              className="rounded-tl-full rounded-tr-full"
+              src={data?.titleThreeImg?.fields?.file?.url}
+              alt=""
+            />
             {/* Group Classes */}
-            <div className="bg-card border border-white rounded-lg shadow-sm h-fit">
+            <div className="bg-card h-fit">
               <div className="p-8 text-white">
                 <h3 className="text-xl font-bold mb-6 text-center">
                   {data.groupClasses}
@@ -98,12 +102,10 @@ const Pricing = () => {
                     <span>{data.groupItem1}</span>
                     <span>{data.groupPrice1}</span>
                   </div>
-                  <hr className="border-border" />
                   <div className="flex justify-between items-center">
                     <span>{data.groupItem2}</span>
                     <span>{data.groupPrice2}</span>
                   </div>
-                  <hr className="border-border" />
                   <div className="flex justify-between items-center">
                     <span>{data.groupItem3}</span>
                     <span>{data.groupPrice3}</span>
@@ -112,7 +114,7 @@ const Pricing = () => {
               </div>
             </div>
             {/* Personal Classes */}
-            <div className="bg-card border border-white rounded-lg shadow-sm h-fit">
+            <div className="bg-card  h-fit">
               <div className="p-8 text-white">
                 <h3 className="text-xl font-bold text-white mb-6 text-center">
                   {data.personalClasses}
@@ -122,12 +124,12 @@ const Pricing = () => {
                     <span>{data.personalItem1}</span>
                     <span>{data.personalPrice1}</span>
                   </div>
-                  <hr className="border-border" />
+
                   <div className="flex justify-between items-center">
                     <span>{data.personalItem2}</span>
                     <span>{data.personalPrice2}</span>
                   </div>
-                  <hr className="border-border" />
+
                   <div className="flex justify-between items-center">
                     <span className="text-muted-foreground">
                       {data.personalItem3}
@@ -139,26 +141,22 @@ const Pricing = () => {
             </div>
 
             {/* Extra Package */}
-            <div className="bg-card border border-white rounded-lg shadow-sm h-fit">
+            <div className="bg-card rounded-lg h-fit">
               <div className="p-8 text-white">
                 <h3 className="text-xl font-bold text-foreground mb-6 text-center">
                   {data.extraPackage}
                 </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">
-                      {data.extraItem1}
-                    </span>
+                    <span>{data.extraItem1}</span>
                     <span>{data.extraPrice1}</span>
                   </div>
-                  <hr className="border-border" />
                   <div className="flex justify-between items-center">
                     <span className="text-muted-foreground">
                       {data.extraItem2}
                     </span>
                     <span>{data.extraPrice2}</span>
                   </div>
-                  <hr className="border-border" />
                   <div className="flex justify-between items-center">
                     <span className="text-muted-foreground">
                       {data.extraItem3}
@@ -181,22 +179,22 @@ const Pricing = () => {
               {
                 title: data.subTitle1,
                 image: data.subTitleImg1?.fields?.file?.url,
-                description: data.title4Des1,
+                description: data.title4des1,
               },
               {
                 title: data.subTitle2,
                 image: data.subTitleImg2?.fields?.file?.url,
-                description: data.title4Des2,
+                description: data.title4des2,
               },
               {
                 title: data.subTitle3,
                 image: data.subTitleImg3?.fields?.file?.url,
-                description: data.title4Des3,
+                description: data.title4des3,
               },
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-card border border-border rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                className="bg-card rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="aspect-video bg-muted">
                   <img
@@ -205,13 +203,11 @@ const Pricing = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                <div className="py-6 px-2">
+                  <h3 className="text-xl font-bold text-primary mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {service.description}
-                  </p>
+                  <p className="leading-relaxed mb-4">{service.description}</p>
                   <button className="inline-flex items-center justify-center border border-primary px-5 py-1.5 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
                     {data.button}
                   </button>
