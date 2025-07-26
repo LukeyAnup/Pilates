@@ -61,7 +61,7 @@ export default function Classes() {
   if (!data) return null;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen -mt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Background Image */}
@@ -79,7 +79,7 @@ export default function Classes() {
 
           {/* Content Container */}
           <div className="bg-secondary w-full px-4 sm:px-6 lg:px-8">
-            <div className="items-center min-h-screen">
+            <div className="flex min-h-screen">
               {/* Left side - Image area (handled by background) */}
               <div className="hidden lg:block"></div>
 
@@ -87,22 +87,18 @@ export default function Classes() {
               <div className="flex flex-col justify-center space-y-6 lg:space-y-8 bg-white bg-opacity-95 p-8 sm:p-10 lg:p-12 rounded-lg shadow-lg lg:bg-opacity-100 lg:shadow-none lg:bg-transparent">
                 {/* Title */}
                 {data.heroTitle && (
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif text-primary">
+                  <h2 className="font-playfair text-primary">
                     {data.heroTitle}
-                  </h1>
+                  </h2>
                 )}
 
                 {/* Description */}
-                {data.heroDesc && (
-                  <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg">
-                    {data.heroDesc}
-                  </p>
-                )}
+                {data.heroDesc && <p className="max-w-lg">{data.heroDesc}</p>}
 
                 {/* Button */}
                 {data.button && (
-                  <div className="pt-4">
-                    <button className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border border-primary bg-transparent text-primary font-medium hover:bg-secondary hover:text-black transition-colors duration-300 text-sm sm:text-base">
+                  <div>
+                    <button className="inline-flex items-center px-6 sm:px-8 py-2 border border-primary bg-transparent text-primary font-medium hover:bg-secondary hover:text-black transition-colors duration-300 text-sm sm:text-base">
                       {data.button}
                       <svg
                         className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
@@ -127,14 +123,12 @@ export default function Classes() {
       </section>
 
       {/* Instructor Section */}
-      <section className="bg-[#a8b5a0] py-16 sm:py-20 lg:py-24">
+      <section className="bg-[#829488] py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
           {data.titleTwo && (
             <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-              <h2 className="text-2xl sm:text-3xl font-serif text-white leading-tight tracking-wide">
-                {data.titleTwo}
-              </h2>
+              <h2 className="text-white font-playfair">{data.titleTwo}</h2>
             </div>
           )}
 

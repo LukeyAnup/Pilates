@@ -32,28 +32,36 @@ export default function GetInTouch() {
   };
 
   return (
-    <section className="relative bg-gray-50 my-6 text-center">
+    <section className="relative text-center">
       {img && (
-        <img
-          src={`https:${img.file.url}`}
-          alt={img.title}
-          className="w-full h-[20vh] object-cover opacity-90"
-        />
+        <div>
+          <img
+            src={`https:${img.file.url}`}
+            alt={img.title}
+            className="w-full h-[300px] object-cover opacity-60"
+          />
+        </div>
       )}
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-        <p className="text-3xl hidden md:block font-bold text-white drop-shadow">
+      <div className="absolute inset-0 flex flex-col space-y-4 items-center justify-center px-4">
+        <h2 className="hidden md:block font-playfair text-primary">
           {data.heading}
-        </p>
+        </h2>
         <p className="text-sm md:hidden font-bold text-primary drop-shadow">
           Want to join the Pilates Community?
         </p>
-        <p className="max-w-2xl hidden md:block text-white mt-4 drop-shadow">
-          {data.description}
-        </p>
+        <p className="max-w-2xl hidden md:block ">{data.description}</p>
+
+        <button className="block md:hidden mx-auto px-20 py-2 text-primary cursor-pointer border">
+          Contact Us
+        </button>
+
+        <button className="hidden md:block mx-auto px-20 py-2 text-primary cursor-pointer border">
+          Get in touch
+        </button>
       </div>
 
-      <footer className="bg-primary text-white text-lg mt-6 hidden md:block">
+      <footer className="bg-primary text-white text-lg hidden md:block font-playfair tracking-[15px]">
         {data.getInTouchFooter}
       </footer>
     </section>

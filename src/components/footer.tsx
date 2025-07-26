@@ -31,12 +31,8 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
           {/* Left Column (60%) */}
           <div className="w-full hidden md:flex md:flex-col lg:w-3/5 space-y-3 sm:space-y-4">
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold leading-tight">
-              {data.footerHeading}
-            </h2>
-            <p className="text-xs sm:text-sm lg:text-base leading-relaxed pr-0 lg:pr-8">
-              {data.footerDescription}
-            </p>
+            <h3 className="font-semibold">{data.footerHeading}</h3>
+            <p className="pr-0 lg:pr-8">{data.footerDescription}</p>
             <p className="text-sm sm:text-base font-medium">{data.location}</p>
           </div>
 

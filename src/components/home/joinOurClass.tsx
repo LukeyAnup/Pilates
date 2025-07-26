@@ -48,12 +48,13 @@ export default function JoinOurClass() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative bg-secondary">
       {/* Desktop view */}
       <section className="hidden md:block mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-10 ml-36 items-center">
           <div className="max-w-xl space-y-6 ">
-            <h1 className="text-primary">{heading}</h1>
+            <h2 className="text-primary font-playfair">{heading}</h2>
+            <p>{description}</p>
             <button className="inline-block px-20 py-2 text-primary cursor-pointer border">
               Learn More
             </button>
@@ -83,7 +84,7 @@ export default function JoinOurClass() {
         Strength
       </p>
       {/* Mobile view */}
-      <section className="mx-auto px-9">
+      <section className="mx-auto px-9 md:hidden">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="max-w-xl space-y-6 ">
             <h2 className="text-2xl md:text-4xl font-bold mb-6 text-primary">

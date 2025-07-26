@@ -45,11 +45,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full shadow px-6 py-4">
-      <ul className="flex gap-6 font-semibold text-gray-700">
+    <nav className="w-full pl-10 py-4 h-20 flex items-center z-20 relative">
+      <ul className="flex gap-10 font-semibold text-white">
         {links.map((link, i) => (
           <li key={i}>
-            <a href={link.url} className="hover:text-primary capitalize">
+            <a href={link.url} className="capitalize">
               {link.label}
             </a>
           </li>

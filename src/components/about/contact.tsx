@@ -57,14 +57,12 @@ export default function ContactUs() {
         {/* Content Section */}
         <div className="flex flex-col w-full max-w-lg mx-auto lg:mx-0 lg:max-w-none lg:pr-8">
           {data.aboutHeading && (
-            <h2 className="text-2xl sm:text-3xl font-semibold font-playfair text-primary mb-4">
+            <h2 className="font-playfair text-primary mb-4">
               {data.aboutHeading}
             </h2>
           )}
           {data.aboutSubheading && (
-            <p className="text-base sm:text-lg text-gray-700 font-montserrat leading-relaxed mb-6">
-              {data.aboutSubheading}
-            </p>
+            <p className="font-montserrat mb-6">{data.aboutSubheading}</p>
           )}
 
           {/* Simple Contact Form */}
@@ -104,7 +102,7 @@ export default function ContactUs() {
               />
               <label
                 htmlFor="email"
-                className="absolute left-3 top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-gray-600"
+                className="absolute left-3 top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-gray-600 font-montserrat"
               >
                 Email
               </label>
@@ -122,7 +120,7 @@ export default function ContactUs() {
               />
               <label
                 htmlFor="phone"
-                className="absolute left-3 top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-gray-600"
+                className="absolute font-montserrat left-3 top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-gray-600"
               >
                 Phone Number
               </label>
@@ -132,7 +130,7 @@ export default function ContactUs() {
             {data.button && (
               <a
                 href="#"
-                className="inline-block w-full sm:w-auto px-12 sm:px-20 py-2 mt-8 border border-primary font-medium hover:bg-[#6e8073] hover:text-white transition text-center"
+                className="inline-block w-full sm:w-auto px-12 sm:px-20 py-2 mt-8 border text-primary border-primary font-medium hover:bg-[#6e8073] hover:text-white transition text-center"
               >
                 {data.button}
               </a>

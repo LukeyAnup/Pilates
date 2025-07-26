@@ -7,7 +7,7 @@ import JoinOurClass from "./joinOurClass";
 import WhyChooseUs from "./whyChooseUs";
 
 const Home = () => (
-  <div>
+  <div className="-mt-20">
     <Hero />
     <About />
     <WhyChooseUs />

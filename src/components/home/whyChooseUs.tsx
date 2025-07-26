@@ -40,18 +40,25 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section className="px-9 md:px-4 pt-20 md:pt-40 my-10 md:my-64 grid md:grid-cols-2 gap-8 items-center bg-primary">
-      {imageUrl && (
-        <img
-          src={`https:${imageUrl}`}
-          alt="Why Choose Us"
-          className="shadow-lg h-[400px] object-cover rounded-t-full border-2 border-white p-4"
-        />
-      )}
+    <section className="px-9 md:px-20 pt-16 md:pt-20 pb-5 md:pb-20 my-10 md:my-64 grid md:grid-cols-5 gap-8 items-center bg-primary">
+      <div className="col-span-5 md:col-span-2">
+        {imageUrl && (
+          <div className="relative md:w-[411px]">
+            <div className="absolute -top-16 md:-top-20 w-full flex justify-center">
+              <div className="h-16 md:h-20 border-l border-white"></div>
+            </div>
+            <img
+              src={`https:${imageUrl}`}
+              alt="Why Choose Us"
+              className="shadow-lg h-[547px] md:w-[411px] object-cover rounded-t-full border border-white p-6"
+            />
+          </div>
+        )}
+      </div>
 
-      <div className="text-white space-y-10">
-        <h1 className="font-playfair">{heading}</h1>
-        <p className="font-montserrat">{description}</p>
+      <div className="text-white space-y-10 col-span-5 md:col-span-3 mt-5 md:mt-0">
+        <h1 className="">{heading}</h1>
+        <p>{description}</p>
         <button className="hidden md:block px-20 py-2 cursor-pointer border">
           <p>Learn More</p>
         </button>

@@ -56,7 +56,7 @@ export default function GetGlimpse() {
 
   return (
     <section className="py-12 px-4 md:px-12 bg-white">
-      <p className="text-3xl font-bold mb-8 text-primary">{heading}</p>
+      <h3 className="mb-8 text-primary font-playfair">{heading}</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
         {/* Large Left Image */}
         {images[0] && (
