@@ -13,7 +13,7 @@ const PricingHero = ({data}: {data: PricingFields}) => {
         <img src={data.photoOne?.fields?.file?.url} alt="" />
       </div>
       <div className="pt-10 pb-6 max-w-4/5 mx-auto">
-        <h3 className="font-playfair text-primary uppercase text-3xl font-bold">
+        <h3 className="font-playfair text-primary uppercase text-[36px] font-bold">
           {data.titleTwo}
         </h3>
         <p className="font-montserrat max-w-3/5 mt-7 text-xl font-normal text-[#4d4d4d] tracking-normal leading-7">
