@@ -6,8 +6,8 @@ import Home from "./components/home/home";
 
 import Navbar from "./components/navbar";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Pricing from "./components/pricing/pricing";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Pricing from "./components/pricing";
 import Classes from "./components/classes/classes";
 
 export default function App() {
