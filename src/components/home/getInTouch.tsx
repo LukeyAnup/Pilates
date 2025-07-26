@@ -1,5 +1,5 @@
 // components/GetInTouch.tsx
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import client from "../../contentfulClient";
 import type {
   GetInTouchFields,
@@ -33,15 +33,10 @@ export default function GetInTouch() {
 
   return (
     <section className="relative text-center">
-      {img && (
-        <div>
-          <img
-            src={`https:${img.file.url}`}
-            alt={img.title}
-            className="w-full h-[300px] object-cover opacity-60"
-          />
-        </div>
-      )}
+      <div
+        style={{backgroundImage: `url(${img.file.url})`}}
+        className="w-full h-[300px] object-cover opacity-70"
+      />
 
       <div className="absolute inset-0 flex flex-col space-y-4 items-center justify-center px-4">
         <h2 className="hidden md:block font-playfair text-primary">

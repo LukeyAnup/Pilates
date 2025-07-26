@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import type { Asset, EntrySkeletonType } from "contentful";
+import {useEffect, useState} from "react";
+import type {Asset, EntrySkeletonType} from "contentful";
 import client from "../../contentfulClient";
 
 type JoinClassFields = {
@@ -60,23 +60,22 @@ export default function JoinOurClass() {
             </button>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-2 gap-3">
-              {image1 && (
-                <img
-                  src={`https:${image1}`}
-                  alt="Class 1"
-                  className="w-full h-auto rounded-xl shadow-lg object-cover"
-                />
-              )}
-              {image2 && (
-                <img
-                  src={`https:${image2}`}
-                  alt="Class 2"
-                  className="w-full h-auto rounded-xl shadow-lg object-cover"
-                />
-              )}
-            </div>
+          <div className="grid grid-cols-2 gap-3">
+            {image1 && (
+              <img
+                src={`https:${image1}`}
+                alt="Class 1"
+                className="w-full h-auto rounded-xl shadow-lg object-cover self-stretch object-left"
+              />
+            )}
+            {image2 && (
+              <img
+                src={`https:${image2}`}
+                alt="Class 2"
+                className="w-full h-auto rounded-xl shadow-lg object-cover self-stretch object-left
+                  "
+              />
+            )}
           </div>
         </div>
       </section>
