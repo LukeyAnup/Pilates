@@ -52,7 +52,7 @@ export default function CheckClasses() {
   const image2Url = getImageUrl(fields.image2);
 
   return (
-    <div>
+    <div className="max-w-4/5 mx-auto">
       <section className="bg-white hidden md:flex py-12 px-4 flex-col mt-12">
         {fields.title && (
           <div className="mb-8">
@@ -80,14 +80,16 @@ export default function CheckClasses() {
           </div>
           <div className="relative">
             <div>
-              {image2Url && (
-                <img
-                  src={image2Url}
-                  alt={fields.title2 || "Image 2"}
-                  className="mx-auto object-contain w-auto h-96"
-                />
-              )}
-              <div className="absolute inset-0 bg-[#637E6CCC]/80" />
+              <div className="relative">
+                {image2Url && (
+                  <img
+                    src={image2Url}
+                    alt={fields.title2 || "Image 2"}
+                    className="mx-auto object-contain w-auto h-96"
+                  />
+                )}
+                <div className="absolute inset-0 bg-[#637E6CCC]/80" />
+              </div>
               {(fields.title2 || fields.subTitle2) && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
                   <h3 className="font-playfair">{fields.title2}</h3>

@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import type {Asset, EntrySkeletonType} from "contentful";
+import { useEffect, useState } from "react";
+import type { Asset, EntrySkeletonType } from "contentful";
 import client from "../../contentfulClient";
 
 type JoinClassFields = {
@@ -50,7 +50,7 @@ export default function JoinOurClass() {
   return (
     <div className="relative bg-secondary">
       {/* Desktop view */}
-      <section className="hidden md:block mx-auto px-4 py-16">
+      <section className="hidden md:flex mx-auto px-4 h-[800px] items-center">
         <div className="grid md:grid-cols-2 gap-10 ml-36 items-center">
           <div className="max-w-xl space-y-6 ">
             <h2 className="text-primary font-playfair">{heading}</h2>
@@ -79,7 +79,7 @@ export default function JoinOurClass() {
           </div>
         </div>
       </section>
-      <p className="absolute uppercase hidden md:block font-bold -left-[300px] top-90 text-9xl text-primary opacity-40 -rotate-90">
+      <p className="absolute uppercase hidden md:block font-bold -left-[320px] top-96 text-9xl text-primary opacity-40 -rotate-90">
         Strength
       </p>
       {/* Mobile view */}

@@ -1,7 +1,25 @@
-import type { PricingFields } from "./types";
+import { useEffect, useState } from "react";
 import navImg from "../../assets/navImg.jpg";
+import PilatesTabs from "../classes/pilatesTabs";
+import ReformerPilates from "../classes/reformerPilates";
+import PricingCheckout from "../pricing/checkout";
+import type { PricingFields } from "../pricing/types";
+import client from "../../contentfulClient";
 
-const PricingHero = ({ data }: { data: PricingFields }) => {
+export default function SchedulePage() {
+  const [data, setData] = useState<PricingFields | null>(null);
+
+  useEffect(() => {
+    client
+      .getEntries({ content_type: "pricing" }) // use your actual content type ID
+      .then((res) => {
+        if (res.items.length > 0) {
+          setData(res.items[0].fields);
+        }
+      });
+  }, []);
+
+  if (!data) return <div>Loading...</div>;
   return (
     <div className="-mt-20">
       <div
@@ -20,22 +38,14 @@ const PricingHero = ({ data }: { data: PricingFields }) => {
       >
         <div className="text-center">
           <h2 className="font-playfair text-white">
-            Explore our pilates Pricing
+            Explore our pilates Schedule
           </h2>
           <p className="text-white">
             Find the perfect class to match your fitness level and goals.
           </p>
         </div>
       </div>
-      <div className="flex flex-col gap-5 max-w-4/5 mx-auto mt-8">
-        <h2 className="font-playfair text-primary font-extrabold text-[40px]">
-          {data.titleOne}
-        </h2>
-        <p className="font-montserrat text-xl font-normal text-[#4d4d4d]">
-          {data.descOne}
-        </p>
-        <img src={data.photoOne?.fields?.file?.url} alt="" />
-      </div>
+
       <div className="pt-10 pb-6 max-w-4/5 mx-auto">
         <h3 className="font-playfair text-primary uppercase text-[36px] font-bold">
           {data.titleTwo}
@@ -119,10 +129,16 @@ const PricingHero = ({ data }: { data: PricingFields }) => {
           />
         </div>
       </div>
+      <div>
+        <PricingCheckout data={data} />
+      </div>
+      <PilatesTabs />
+      {/* <ReformerPilates entryId="7wSAOVmN4R0jyvkQzWBuRO" />
+      <ReformerPilates entryId="4BwAfdE9rijmGxG9AK1LNQ" />
+      <ReformerPilates entryId="5ditJCXyIHQjUTGn1dwCqb" /> */}
     </div>
   );
-};
-
+}
 const ScheduleTableRowItem = ({ content }: { content: string }) => {
   return (
     <td className="py-4 font-montserrat text-base leading-7 text-text-tertiary uppercase">
@@ -130,5 +146,3 @@ const ScheduleTableRowItem = ({ content }: { content: string }) => {
     </td>
   );
 };
-
-export default PricingHero;

@@ -1,6 +1,6 @@
-import type {PricingFields} from "./types";
+import type { PricingFields } from "./types";
 
-const PricingOffers = ({data}: {data: PricingFields}) => {
+const PricingOffers = ({ data }: { data: PricingFields }) => {
   return (
     <section className="py-20 px-6">
       <div className="max-w-4/5 mx-auto">
@@ -44,7 +44,7 @@ const PricingOffers = ({data}: {data: PricingFields}) => {
                 <p className="mb-4 font-montserrat text-text-tertiary text-base tracking-normal leading-7">
                   {service.description}
                 </p>
-                <button className="inline-flex items-center justify-center border border-primary px-6 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                <button className="inline-flex items-center justify-center border border-primary px-6 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer">
                   <p>{data.button}</p>
                 </button>
               </div>
