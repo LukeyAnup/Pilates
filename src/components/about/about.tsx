@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import navImg from "../../assets/navImg.jpg";
 import client from "../../contentfulClient";
-import About from "../home/about";
+// import About from "../home/about";
 import type { Asset, Entry, EntrySkeletonType } from "contentful";
 
 type LinkItemFields = {
@@ -81,8 +81,14 @@ export default function AboutUsPage() {
               </h1>
 
               <p className="font-montserrat">{aboutData.aboutDescription}</p>
-              <button className="px-20 py-2 text-primary cursor-pointer border">
-                <p className="font-montserrat">Learn More</p>
+              <button className="relative overflow-hidden px-20 py-2 border border-primary cursor-pointer group">
+                {/* Sliding background */}
+                <span className="absolute inset-0 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+
+                {/* Text content above background */}
+                <p className="relative z-10 font-montserrat text-primary transition-colors duration-300 group-hover:text-white">
+                  Learn More
+                </p>
               </button>
             </div>
 
@@ -97,18 +103,18 @@ export default function AboutUsPage() {
         </section>
         {/* //Mobile view */}
         <section className="relative md:hidden max-w-6xl mx-auto">
-          <h1 className="md:hidden py-8 px-9 font-playfair capitalize text-primary">
+          <div className="md:hidden text-3xl font-bold py-8 px-9 font-playfair capitalize text-primary">
             {aboutData.aboutHeading}
-          </h1>
+          </div>
           <div className="relative">
             {imgUrl && (
               <img
                 src={imgUrl}
                 alt={aboutData.aboutHeading || "About image"}
-                className="shadow-md"
+                className="pr-4 pl-16"
               />
             )}
-            <div className="absolute top-97 right-9 space-y-6 bg-[#F3F0E7] md:bg-[#F3F0E7CC] p-12">
+            <div className="absolute top-80 right-9 left-6 space-y-6 bg-[#F3F0E7] md:bg-[#F3F0E7CC] p-8">
               <p className="hidden md:block font-bold capitalize text-primary">
                 {aboutData.aboutHeading}
               </p>

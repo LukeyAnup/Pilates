@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section className="px-9 md:px-20 pt-16 md:pt-20 pb-5 md:pb-20 my-10 md:my-64 grid md:grid-cols-5 gap-8 items-center bg-primary">
+    <section className="px-9 md:px-20 pt-16 md:pt-20 pb-5 grid md:grid-cols-5 gap-8 items-center bg-primary">
       <div className="col-span-5 md:col-span-2">
         {imageUrl && (
           <div className="relative md:w-[411px]">
@@ -56,11 +56,18 @@ export default function WhyChooseUs() {
         )}
       </div>
 
-      <div className="text-white space-y-10 col-span-5 md:col-span-3 mt-5 md:mt-0">
-        <h1 className="">{heading}</h1>
+      <div className="text-white space-y-6 md:space-y-10 col-span-5 md:col-span-3">
+        <h1 className="hidden md:block">{heading}</h1>
+        <div className="md:hidden text-3xl font-playfair">{heading}</div>
         <p>{description}</p>
-        <button className="hidden md:block px-20 py-2 cursor-pointer border">
-          <p>Learn More</p>
+        <button className="relative hidden md:block overflow-hidden px-20 py-2 border border-white cursor-pointer group">
+          {/* Sliding background */}
+          <span className="absolute inset-0 w-0 bg-white transition-all duration-300 group-hover:w-full" />
+
+          {/* Text content above background */}
+          <p className="relative z-10 font-montserrat text-white transition-colors duration-300 group-hover:text-primary">
+            Learn More
+          </p>
         </button>
       </div>
     </section>

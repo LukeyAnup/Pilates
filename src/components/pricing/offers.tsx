@@ -44,8 +44,14 @@ const PricingOffers = ({ data }: { data: PricingFields }) => {
                 <p className="mb-4 font-montserrat text-text-tertiary text-base tracking-normal leading-7">
                   {service.description}
                 </p>
-                <button className="inline-flex items-center justify-center border border-primary px-6 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer">
-                  <p>{data.button}</p>
+                <button className="relative overflow-hidden px-20 py-2 border border-primary cursor-pointer group">
+                  {/* Sliding background */}
+                  <span className="absolute inset-0 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+
+                  {/* Text content above background */}
+                  <p className="relative z-10 font-montserrat text-primary transition-colors duration-300 group-hover:text-white">
+                    {data.button}
+                  </p>
                 </button>
               </div>
             </div>

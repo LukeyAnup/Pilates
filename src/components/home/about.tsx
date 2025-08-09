@@ -47,7 +47,7 @@ export default function About() {
     : null;
 
   return (
-    <div className="relative mb-36">
+    <div className="relative mb-60">
       {/* //Desktop view */}
       <section className="max-w-6xl hidden md:block mx-auto pt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
@@ -57,8 +57,14 @@ export default function About() {
             </h1>
 
             <p className="font-montserrat">{aboutData.aboutDescription}</p>
-            <button className="px-20 py-2 text-primary cursor-pointer border">
-              <p className="font-montserrat">Learn More</p>
+            <button className="relative overflow-hidden px-20 py-2 border border-primary cursor-pointer group">
+              {/* Sliding background */}
+              <span className="absolute inset-0 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+
+              {/* Text content above background */}
+              <p className="relative z-10 font-montserrat text-primary transition-colors duration-300 group-hover:text-white">
+                Learn More
+              </p>
             </button>
           </div>
 
@@ -73,18 +79,18 @@ export default function About() {
       </section>
       {/* //Mobile view */}
       <section className="relative md:hidden max-w-6xl mx-auto">
-        <h1 className="md:hidden py-8 px-9 font-playfair capitalize text-primary">
+        <div className="md:hidden text-3xl font-bold py-8 px-9 font-playfair capitalize text-primary">
           {aboutData.aboutHeading}
-        </h1>
+        </div>
         <div className="relative">
           {imgUrl && (
             <img
               src={imgUrl}
               alt={aboutData.aboutHeading || "About image"}
-              className="shadow-md"
+              className="pr-4 pl-16"
             />
           )}
-          <div className="absolute top-97 right-9 space-y-6 bg-[#F3F0E7] md:bg-[#F3F0E7CC] p-12">
+          <div className="absolute top-80 right-9 left-6 space-y-6 bg-[#F3F0E7] md:bg-[#F3F0E7CC] p-8">
             <p className="hidden md:block font-bold capitalize text-primary">
               {aboutData.aboutHeading}
             </p>
@@ -95,7 +101,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <p className="absolute uppercase font-bold text-6xl -left-3 -bottom-54 md:text-9xl md:-left-7 text-primary opacity-40">
+      <p className="absolute uppercase font-bold text-6xl -left-3 -bottom-54 md:text-9xl md:-left-7 text-primary opacity-20">
         Balance
       </p>
     </div>

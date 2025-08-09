@@ -5,10 +5,10 @@
 @theme {
   --color-primary: #829488;
   --color-secondary: #f5f3ec;
-  --color-tertiary: #BA936F;
+  --color-tertiary: #ba936f;
 
   --color-text-primary: #829488;
-  --color-text-description: #4D4D4D;
+  --color-text-description: #4d4d4d;
   --color-text-tertiary: #343434;
 
   --font-playfair: "Playfair Display", sans-serif;
@@ -43,4 +43,8 @@
   p {
     @apply text-[16px] leading-[22px] font-montserrat;
   }
+}
+
+.small-marker li::marker {
+  font-size: 0.7em; /* Adjust size as needed */
 }

@@ -113,11 +113,9 @@ export default function PilatesTabs() {
 
       {/* Tab Content */}
       <div className="tab-content">
-        {activeTab && (
-          <div key={activeTab.entryId} className="animate-fadeIn">
-            <ReformerPilates entryId={activeTab.entryId} />
-          </div>
-        )}
+        <div>
+          <ReformerPilates entryId={activeTab.entryId} />
+        </div>
       </div>
     </div>
   );

@@ -55,8 +55,14 @@ export default function GetGlimpse() {
   }, []);
 
   return (
-    <section className="py-12 px-4 md:px-12 bg-white">
-      <h3 className="mb-8 text-primary font-playfair">{heading}</h3>
+    <section className="py-12 px-6 md:px-12 bg-white">
+      <h3 className="mb-8 hidden md:block text-primary font-playfair">
+        {heading}
+      </h3>
+      <div className="mb-8 md:hidden text-primary font-playfair text-3xl">
+        {heading}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
         {/* Large Left Image */}
         {images[0] && (
@@ -68,13 +74,13 @@ export default function GetGlimpse() {
         )}
 
         {/* 2x2 Grid on the Right */}
-        <div className="md:col-span-2 grid grid-cols-2 gap-4">
+        <div className="md:col-span-2 grid grid-cols-2 gap-3">
           {images.slice(1, 5).map((src, index) => (
             <img
               key={index + 1}
               src={src}
               alt={`glimpse-${index + 2}`}
-              className="w-full h-60 object-cover rounded-xl shadow-sm hover:scale-105 transition-transform duration-300"
+              className="w-full h-60 object-cover shadow-sm hover:scale-105 transition-transform duration-300"
             />
           ))}
         </div>

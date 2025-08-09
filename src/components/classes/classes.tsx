@@ -77,7 +77,7 @@ export default function Classes() {
           alignItems: "center",
         }}
       >
-        <div>
+        <div className="text-center">
           <h2 className="font-playfair text-white">
             Explore our pilates Classes
           </h2>
@@ -86,19 +86,19 @@ export default function Classes() {
           </p>
         </div>
       </div>
-      <div className="flex relative">
+      <div className="hidden md:flex relative">
         <div className="w-full">
           {heroBgUrl && (
             <img
               src={heroBgUrl}
               alt="Pilates Studio"
-              className="w-full h-full object-cover"
+              className="w-full h-[100vh] object-cover"
             />
           )}
         </div>
-        <div className="-ml-40 w-full my-10">
+        <div className="-ml-30 w-full my-20">
           <div className="bg-secondary">
-            <div className="flex min-h-screen w-full items-center justify-center">
+            <div className="flex min-h-[80vh] w-full items-center justify-center">
               {/* Right side - Content */}
               <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
                 {/* Title */}
@@ -114,21 +114,27 @@ export default function Classes() {
                 {/* Button */}
                 {data.button && (
                   <div>
-                    <button className="inline-flex items-center px-6 sm:px-8 py-2 border border-primary bg-transparent text-primary font-medium hover:bg-secondary hover:text-black transition-colors duration-300 text-sm sm:text-base cursor-pointer">
-                      {data.button}
-                      <svg
-                        className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                    <button className="group relative inline-flex items-center px-6 sm:px-8 py-2 border border-primary bg-transparent text-primary font-medium text-sm sm:text-base cursor-pointer overflow-hidden transition-colors duration-300">
+                      {/* Sliding background */}
+                      <span className="absolute inset-0 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+
+                      {/* Button content */}
+                      <span className="relative z-10 flex items-center transition-colors duration-300 group-hover:text-white">
+                        {data.button}
+                        <svg
+                          className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </span>
                     </button>
                   </div>
                 )}
@@ -139,16 +145,16 @@ export default function Classes() {
       </div>
 
       {/* Instructor Section */}
-      <section className="bg-[#829488] py-10 h-full hidden md:block">
+      <section className="bg-[#829488] h-full hidden md:block">
         <div>
           {/* Section Title */}
           {data.titleTwo && (
-            <div className="text-center">
+            <div className="text-center pt-20">
               <h2 className="text-white font-playfair">{data.titleTwo}</h2>
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4 pt-8">
+          <div className="grid grid-cols-2 gap-4 py-20">
             <div className="relative col-span-1 flex">
               <div className="bg-white px-20 shadow-lg flex flex-col justify-center h-[550px] w-full">
                 {data.instructorName && (
@@ -184,10 +190,12 @@ export default function Classes() {
                 )}
               </div>
             </div>
-            <div className="col-span-1">
+            <div className="col-span-1 flex justify-end items-center pr-20">
               {data.titleThree && (
-                <h3 className="text-5xl font-serif text-right text-[#FFFFFF80]">
-                  {data.titleThree}
+                <h3 className="text-[75px] font-playfair text-[#FFFFFF80] leading-none text-right">
+                  {data.titleThree.split(" ").map((word, index) => (
+                    <div key={index}>{word}</div>
+                  ))}
                 </h3>
               )}
             </div>
@@ -195,11 +203,23 @@ export default function Classes() {
         </div>
       </section>
       {/* //Mobile */}
-      <section className="bg-primary md:hidden">
-        <div className="flex justify-center lg:justify-end -right-50 bottom-14">
-          {instructorImgUrl && (
-            <div className="border p-4 border-white rounded-bl-[165px] rounded-br-[165px] ">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-bl-[165px] rounded-br-[165px] overflow-hidden ">
+      <section className="relative bg-primary md:hidden py-20">
+        <div className="relative z-10 max-w-60 bg-white py-20">
+          <h4 className="text-xl sm:text-2xl lg:text-3xl font-serif text-primary mb-2">
+            {data.instructorName}
+          </h4>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-medium mb-4">
+            {data.classInstructor}
+          </p>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
+            {data.instructorDesc}
+          </p>
+        </div>
+
+        {instructorImgUrl && (
+          <div className="absolute top-1/2 left-[25%] -translate-y-1/2 w-[70%] z-0">
+            <div className="border p-4 border-white rounded-bl-[165px] rounded-br-[165px]">
+              <div className="w-full h-64 sm:h-80 lg:h-96 rounded-bl-[165px] rounded-br-[165px] overflow-hidden">
                 <img
                   src={instructorImgUrl}
                   alt={data.instructorName || "Instructor"}
@@ -207,8 +227,8 @@ export default function Classes() {
                 />
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </section>
     </div>
   );

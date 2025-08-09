@@ -1,6 +1,6 @@
-import type {PricingFields} from "./types";
+import type { PricingFields } from "./types";
 
-const PricingCheckout = ({data}: {data: PricingFields}) => {
+const PricingCheckout = ({ data }: { data: PricingFields }) => {
   return (
     <section className="flex gap-8 relative py-20 bg-primary pr-24 my-32">
       <img

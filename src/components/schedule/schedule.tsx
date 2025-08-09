@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import navImg from "../../assets/navImg.jpg";
 import PilatesTabs from "../classes/pilatesTabs";
-import ReformerPilates from "../classes/reformerPilates";
+// import ReformerPilates from "../classes/reformerPilates";
 import PricingCheckout from "../pricing/checkout";
 import type { PricingFields } from "../pricing/types";
 import client from "../../contentfulClient";

@@ -82,6 +82,7 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
           setError(`No ReformerPilates entry found for: ${identifier}`);
           return;
         }
+        await new Promise((resolve) => setTimeout(resolve, 700)); // ← Add delay here
 
         setData(entry.fields);
       } catch (err) {
@@ -95,7 +96,32 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
     fetchReformerPilates();
   }, [entryId]); // Re-run effect when entryId changes
 
-  if (loading) return <div className="p-4 text-center">Loading...</div>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-64">
+        <svg
+          className="animate-spin h-8 w-8 text-primary"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v8H4z"
+          ></path>
+        </svg>
+      </div>
+    );
+
   if (error)
     return <div className="p-4 text-center text-red-600">Error: {error}</div>;
   if (!data) return <div className="p-4 text-center">No data available</div>;
@@ -103,46 +129,34 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
   return (
     <div className="container mx-auto space-y-4 grid grid-cols-3">
       <div className="col-span-2">
-        {/* Tab Title */}
-        {data.tabTitle && (
-          <div className="bg-gray-100 p-4 rounded-lg">
-            <h1 className="">{data.tabTitle}</h1>
-          </div>
-        )}
+        <div className="flex flex-col gap-4">
+          <h4 className="font-playfair text-primary">{data.classTitle}</h4>
+          <p className="text-gray-700">{data.classDesc}</p>
+        </div>
 
-        {/* Class Title */}
-        {data.classTitle && (
-          <div>
-            <h4 className="font-playfair text-primary">{data.classTitle}</h4>
-          </div>
-        )}
-
-        {/* Class Description */}
-        {data.classDesc && (
-          <div>
-            <p className="text-gray-700">{data.classDesc}</p>
-          </div>
-        )}
-
-        <ul className="list-disc">
+        <ul className="list-disc marker:text-primary list-inside space-y-2 px-3 py-5 small-marker">
           <li>
-            <span className="text-primary">{data.classQuota}:</span>
-            <span> {data.quotaLeft}</span>
+            <span className="text-primary font-semibold">
+              {data.classQuota}:
+            </span>
+            <span className="text-gray-800"> {data.quotaLeft}</span>
           </li>
           <li>
-            <span className="text-primary">{data.durationTitle}:</span>
-            <span> {data.durationTime}</span>
+            <span className="text-primary font-semibold">
+              {data.durationTitle}:
+            </span>
+            <span className="text-gray-800"> {data.durationTime}</span>
           </li>
           <li>
-            <span className="text-primary">{data.level}:</span>
-            <span> {data.levelDesc}</span>
+            <span className="text-primary font-semibold">{data.level}:</span>
+            <span className="text-gray-800"> {data.levelDesc}</span>
           </li>
         </ul>
 
         <div className="flex w-full">
           {/* Image 1 */}
           {data.img1 && (
-            <div className="bg-gray-50 p-4 rounded-lg">
+            <div className="p-4 rounded-lg">
               <img
                 src={`https:${data.img1.fields?.file?.url}`}
                 className="w-full h-64 object-cover rounded-lg"
@@ -152,7 +166,7 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
 
           {/* Image 2 */}
           {data.img2 && (
-            <div className="bg-gray-50 p-4 rounded-lg">
+            <div className="p-4">
               <img
                 src={`https:${data.img2.fields?.file?.url}`}
                 className="w-full h-64 object-cover rounded-lg"
@@ -161,118 +175,100 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
           )}
         </div>
 
-        {/* Learn What */}
-        {data.learnWhat && (
-          <div>
-            <h4 className="text-primary font-playfair">{data.learnWhat}</h4>
-          </div>
-        )}
+        <div className="pt-4">
+          <h4 className="text-primary font-playfair">{data.learnWhat}</h4>
+        </div>
 
-        <ul className="list-disc">
-          <li>
-            <span className="font-semibold font-montserrat">
-              {" "}
-              {data.fundamentalTitle}:
-            </span>
-            <span className="font-montserrat"> {data.fundamentalDesc}</span>
+        <ul className="list-disc list-inside marker:text-primary space-y-2 px-3 py-4 small-marker">
+          <li className="text-gray-800 font-montserrat">
+            <span className="font-semibold">{data.fundamentalTitle}:</span>
+            <span> {data.fundamentalDesc}</span>
           </li>
-          <li>
-            <span className="font-semibold font-montserrat">
-              {" "}
-              {data.coreTitle}:
-            </span>
-            <span className="font-montserrat"> {data.coreDesc}</span>
+          <li className="text-gray-800 font-montserrat">
+            <span className="font-semibold">{data.coreTitle}:</span>
+            <span> {data.coreDesc}</span>
           </li>
-          <li>
-            <span className="font-semibold font-montserrat">
-              {" "}
-              {data.breathingTitle}:
-            </span>
-            <span className="font-montserrat"> {data.breathingDesc}</span>
+          <li className="text-gray-800 font-montserrat">
+            <span className="font-semibold">{data.breathingTitle}:</span>
+            <span> {data.breathingDesc}</span>
           </li>
-          <li>
-            <span className="font-semibold font-montserrat">
-              {data.balanceTitle}:
-            </span>
-            <span className="font-montserrat"> {data.balanceDesc}</span>
+          <li className="text-gray-800 font-montserrat">
+            <span className="font-semibold">{data.balanceTitle}:</span>
+            <span> {data.balanceDesc}</span>
           </li>
         </ul>
 
-        <div className="flex gap-5">
-          <ul className="list-disc">
-            <h4 className="font-playfair text-primary"> {data.whatToBring}</h4>
-            <li>
-              <span>{data.point1}</span>
-            </li>
-            <li>
-              <span>{data.point2}</span>
-            </li>
-            <li>
-              <span>{data.point3}</span>
-            </li>
-          </ul>
-          <ul className="list-disc">
-            <h4 className="font-playfair text-primary">
-              {" "}
+        <div className="flex gap-8 py-8">
+          <div>
+            <h4 className="text-primary font-playfair mb-3">
+              {data.whatToBring}
+            </h4>
+            <ul className="list-disc small-marker marker:text-primary list-inside space-y-2 text-gray-800 font-montserrat">
+              <li>{data.point1}</li>
+              <li>{data.point2}</li>
+              <li>{data.point3}</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-playfair text-primary mb-3">
               {data.classBenefits}
             </h4>
-            <li>
-              <span>{data.classPoint1}</span>
-            </li>
-            <li>
-              <span>{data.classPoint2}</span>
-            </li>
-            <li>
-              <span>{data.classPoint3}</span>
-            </li>
-            <li>
-              <span>{data.classPoint4}</span>
-            </li>
-          </ul>
+            <ul className="list-disc list-inside marker:text-primary small-marker space-y-2 text-gray-800 font-montserrat">
+              <li>{data.classPoint1}</li>
+              <li>{data.classPoint2}</li>
+              <li>{data.classPoint3}</li>
+              <li>{data.classPoint4}</li>
+            </ul>
+          </div>
         </div>
-
+        <hr className="my-8 text-gray-600" />
         <div>
           <ul className="list-disc">
-            <h4 className="font-playfair text-primary">
+            <h4 className="font-playfair text-primary mb-3">
               {" "}
               {data.additionalInformation}
             </h4>
-            <li>
-              <span>{data.additionalPoint1}</span>
-            </li>
-            <li>
-              <span>{data.additionalPoint2}</span>
-            </li>
+            <ul className="list-disc list-inside marker:text-primary small-marker space-y-2 text-gray-800 font-montserrat">
+              <li>{data.additionalPoint1}</li>
+              <li>{data.additionalPoint2}</li>
+            </ul>
           </ul>
         </div>
       </div>
 
       <div className="bg-primary">
-        {data.instructorImg && (
-          <div className=" p-4 rounded-lg">
-            <img
-              src={`https:${data.instructorImg.fields?.file?.url}`}
-              className=" object-cover rounded-tl-full rounded-tr-full h-96  mx-auto"
-            />
-          </div>
-        )}
+        <div className="max-w-fit mx-auto p-4 rounded-lg">
+          {/* Instructor Image */}
+          {data.instructorImg && (
+            <div>
+              <img
+                src={`https:${data.instructorImg.fields?.file?.url}`}
+                className="object-cover rounded-tl-full rounded-tr-full h-96 mx-auto"
+                alt="Instructor"
+              />
+            </div>
+          )}
 
-        {/* Instructor Name */}
-        {data.instructorName && (
-          <h4 className="text-white text-center font-playfair">
-            {data.instructorName}
-          </h4>
-        )}
+          {/* Instructor Name */}
+          {data.instructorName && (
+            <h4 className="text-white text-center font-playfair mt-4">
+              {data.instructorName}
+            </h4>
+          )}
 
-        {/* Instructor Position */}
-        {data.instructorPosition && (
-          <p className="text-white text-center">{data.instructorPosition}</p>
-        )}
+          {/* Instructor Position */}
+          {data.instructorPosition && (
+            <p className="text-white text-center">{data.instructorPosition}</p>
+          )}
 
-        {/* Instructor Description */}
-        {data.instructorDescription && (
-          <p className="text-white text-center">{data.instructorDescription}</p>
-        )}
+          {/* Instructor Description */}
+          {data.instructorDescription && (
+            <p className="text-white text-center">
+              {data.instructorDescription}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
