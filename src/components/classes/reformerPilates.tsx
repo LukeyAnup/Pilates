@@ -127,8 +127,8 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
   if (!data) return <div className="p-4 text-center">No data available</div>;
 
   return (
-    <div className="container mx-auto space-y-4 grid grid-cols-3">
-      <div className="col-span-2">
+    <div className="container mx-auto space-y-4 grid md:grid-cols-3">
+      <div className="col-span-0 md:col-span-2">
         <div className="flex flex-col gap-4">
           <h4 className="font-playfair text-primary">{data.classTitle}</h4>
           <p className="text-gray-700">{data.classDesc}</p>
@@ -198,7 +198,7 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
           </li>
         </ul>
 
-        <div className="flex gap-8 py-8">
+        <div className="flex flex-col md:flex-row gap-8 py-8">
           <div>
             <h4 className="text-primary font-playfair mb-3">
               {data.whatToBring}
@@ -222,7 +222,7 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
             </ul>
           </div>
         </div>
-        <hr className="my-8 text-gray-600" />
+        <hr className="my-8 hidden md:block text-gray-600" />
         <div>
           <ul className="list-disc">
             <h4 className="font-playfair text-primary mb-3">
@@ -237,37 +237,85 @@ export default function ReformerPilates({ entryId }: ReformerPilatesProps) {
         </div>
       </div>
 
-      <div className="bg-primary">
-        <div className="max-w-fit mx-auto p-4 rounded-lg">
-          {/* Instructor Image */}
-          {data.instructorImg && (
-            <div>
-              <img
-                src={`https:${data.instructorImg.fields?.file?.url}`}
-                className="object-cover rounded-tl-full rounded-tr-full h-96 mx-auto"
-                alt="Instructor"
-              />
+      <div>
+        <div className="bg-primary hidden md:block py-5">
+          <div className="max-w-fit mx-auto px-4 rounded-lg">
+            <div className="flex flex-col gap-3">
+              {/* Instructor Image */}
+              {data.instructorImg && (
+                <div>
+                  <img
+                    src={`https:${data.instructorImg.fields?.file?.url}`}
+                    className="object-cover rounded-tl-full rounded-tr-full h-96 mx-auto"
+                    alt="Instructor"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col gap-2">
+                {/* Instructor Name */}
+                {data.instructorName && (
+                  <h4 className="text-white text-center font-playfair">
+                    {data.instructorName}
+                  </h4>
+                )}
+
+                {/* Instructor Position */}
+                {data.instructorPosition && (
+                  <p className="text-white text-center">
+                    {data.instructorPosition}
+                  </p>
+                )}
+              </div>
+
+              {/* Instructor Description */}
+              {data.instructorDescription && (
+                <p className="text-white text-center">
+                  {data.instructorDescription}
+                </p>
+              )}
             </div>
-          )}
+          </div>
+        </div>
+      </div>
 
-          {/* Instructor Name */}
-          {data.instructorName && (
-            <h4 className="text-white text-center font-playfair mt-4">
-              {data.instructorName}
-            </h4>
-          )}
+      <div className="md:hidden">
+        <div className="bg-primary py-5">
+          <div className="rounded-lg">
+            <div className="flex flex-col gap-3">
+              {/* Instructor Image */}
+              {data.instructorImg && (
+                <div>
+                  <img
+                    src={`https:${data.instructorImg.fields?.file?.url}`}
+                    className="object-cover rounded-tl-full rounded-tr-full h-96 mx-auto"
+                    alt="Instructor"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col gap-2">
+                {/* Instructor Name */}
+                {data.instructorName && (
+                  <h4 className="text-white text-center font-playfair">
+                    {data.instructorName}
+                  </h4>
+                )}
 
-          {/* Instructor Position */}
-          {data.instructorPosition && (
-            <p className="text-white text-center">{data.instructorPosition}</p>
-          )}
+                {/* Instructor Position */}
+                {data.instructorPosition && (
+                  <p className="text-white text-center">
+                    {data.instructorPosition}
+                  </p>
+                )}
+              </div>
 
-          {/* Instructor Description */}
-          {data.instructorDescription && (
-            <p className="text-white text-center">
-              {data.instructorDescription}
-            </p>
-          )}
+              {/* Instructor Description */}
+              {data.instructorDescription && (
+                <p className="text-white text-center">
+                  {data.instructorDescription}
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -49,7 +49,7 @@ export default function About() {
   return (
     <div className="relative mb-60">
       {/* //Desktop view */}
-      <section className="max-w-6xl hidden md:block mx-auto pt-24">
+      <section id="about" className="max-w-6xl hidden md:block mx-auto pt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="space-y-10 bg-[#F3F0E7CC] p-12">
             <h1 className="capitalize text-primary font-playfair">
@@ -78,7 +78,7 @@ export default function About() {
         </div>
       </section>
       {/* //Mobile view */}
-      <section className="relative md:hidden max-w-6xl mx-auto">
+      <section id="about" className="relative md:hidden max-w-6xl mx-auto">
         <div className="md:hidden text-3xl font-bold py-8 px-9 font-playfair capitalize text-primary">
           {aboutData.aboutHeading}
         </div>

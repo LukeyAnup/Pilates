@@ -87,16 +87,16 @@ export default function PilatesTabs() {
   const activeTab = tabs[activeTabIndex];
 
   return (
-    <div className="w-full max-w-4/5 mx-auto p-4">
+    <div className="w-full md:max-w-4/5 mx-auto p-4">
       {/* Tab Navigation */}
       <div className="border-b border-gray-200 mb-6">
-        <nav className="-mb-px flex " aria-label="Tabs">
+        <nav className="-mb-px flex flex-col md:flex-row" aria-label="Tabs">
           {tabs.map((tab, index) => (
             <button
               key={tab.entryId}
               onClick={() => setActiveTabIndex(index)}
               className={`
-                whitespace-nowrap py-3 px-5 border-b-2 font-medium text-sm transition-colors duration-200 cursor-pointer
+                whitespace-nowrap py-3 px-5 border-b-2 font-medium text-sm transition-colors text-start md:text-center duration-200 cursor-pointer
                 ${
                   index === activeTabIndex
                     ? "text-white bg-primary"

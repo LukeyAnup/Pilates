@@ -70,12 +70,13 @@ export default function ContactUs() {
       >
         <div className="text-center">
           <h2 className="font-playfair text-white">Contact Us</h2>
-          <p className="text-white">
+          <p className="text-white px-2">
             Find the perfect class to match your fitness level and goals.
           </p>
         </div>
       </div>
       <div
+        className="hidden md:block"
         style={{
           background: `linear-gradient(to right, white 0%, white 80%, var(--color-primary) 80%, var(--color-primary) 100%)`,
         }}
@@ -166,6 +167,130 @@ export default function ContactUs() {
 
             {/* Contact Information */}
             <div className="text-sm flex flex-col sm:flex-row gap-4 sm:gap-10 space-y-1 sm:space-y-0">
+              <div className="flex gap-3">
+                <img src={phoneSvg} alt="" />
+                <div>
+                  <label className="font-medium text-primary uppercase">
+                    Phone
+                  </label>
+                  {data.phoneNo && <p className="mt-1"> {data.phoneNo}</p>}
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <img src={emailSvg} alt="" />
+
+                <div>
+                  <label className="font-medium text-primary uppercase">
+                    Email
+                  </label>
+                  {data.emailAddress && (
+                    <p className="mt-1"> {data.emailAddress}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Image Section */}
+          {locationImgUrl && (
+            <div className="relative w-full h-64 sm:h-80 lg:h-[400px] order-first lg:order-last border-2 border-primary p-4">
+              <img
+                src={locationImgUrl}
+                alt="Location"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+      {/* //Mobile */}
+      <div className="px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-10">
+          {/* Content Section */}
+          <div className="flex flex-col w-full max-w-lg mx-auto lg:mx-0 lg:max-w-none lg:pr-8">
+            {data.aboutHeading && (
+              <h2 className="font-playfair text-primary mb-4">
+                {data.aboutHeading}
+              </h2>
+            )}
+            {data.aboutSubheading && (
+              <p className="font-montserrat mb-6">{data.aboutSubheading}</p>
+            )}
+
+            {/* Simple Contact Form */}
+            <form
+              className="space-y-4 mb-6 w-full"
+              onSubmit={(e) => {
+                e.preventDefault(); /* handle submit here */
+              }}
+            >
+              {/* Name Input */}
+              <div className="relative w-full mb-6">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="peer w-full border border-gray-300 px-3 pt-5 pb-2 placeholder-transparent focus:outline-none focus:border-black"
+                  placeholder="Name"
+                />
+                <label
+                  htmlFor="name"
+                  className="absolute left-3 top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-gray-600"
+                >
+                  Name
+                </label>
+              </div>
+
+              {/* Email Input */}
+              <div className="relative w-full mb-6">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="peer w-full border border-gray-300 px-3 pt-5 pb-2 placeholder-transparent focus:outline-none focus:border-black"
+                  placeholder="Email"
+                />
+                <label
+                  htmlFor="email"
+                  className="absolute left-3 top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-gray-600 font-montserrat"
+                >
+                  Email
+                </label>
+              </div>
+
+              {/* Phone Input */}
+              <div className="relative w-full mb-6">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  className="peer w-full border border-gray-300 px-3 pt-5 pb-2 placeholder-transparent focus:outline-none focus:border-black"
+                  placeholder="Phone"
+                />
+                <label
+                  htmlFor="phone"
+                  className="absolute font-montserrat left-3 top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-gray-600"
+                >
+                  Phone Number
+                </label>
+              </div>
+
+              {/* Submit Button */}
+              {data.button && (
+                <a
+                  href="#"
+                  className="inline-block w-full sm:w-auto px-12 sm:px-20 py-2 mt-4 border text-primary border-primary font-medium hover:bg-[#6e8073] hover:text-white transition text-center"
+                >
+                  {data.button}
+                </a>
+              )}
+            </form>
+
+            {/* Contact Information */}
+            <div className="text-sm flex gap-8 pt-6">
               <div className="flex gap-3">
                 <img src={phoneSvg} alt="" />
                 <div>

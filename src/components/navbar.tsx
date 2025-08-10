@@ -48,13 +48,27 @@ export default function Navbar() {
   return (
     <nav className="w-full py-4 h-20 px-5 md:px-10 flex items-center justify-between z-20 relative">
       {/* Logo or brand */}
-      <div className="text-white md:hidden font-bold text-xl">MySite</div>
+      <div className="text-white md:hidden font-bold text-xl font-playfair">
+        Pilates
+      </div>
 
       {/* Desktop nav */}
       <ul className="hidden md:flex md:gap-10 gap-5 font-semibold text-white">
         {links.map((link, i) => (
           <li key={i}>
-            <a href={link.url} className="capitalize">
+            <a
+              href={link.url}
+              className="capitalize"
+              onClick={(e) => {
+                if (link.url.startsWith("#")) {
+                  e.preventDefault();
+                  const section = document.querySelector(link.url);
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
+            >
               {link.label}
             </a>
           </li>
@@ -78,7 +92,16 @@ export default function Navbar() {
                 <a
                   href={link.url}
                   className="capitalize"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    if (link.url.startsWith("#")) {
+                      e.preventDefault();
+                      const section = document.querySelector(link.url);
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }
+                    setIsOpen(false);
+                  }}
                 >
                   {link.label}
                 </a>

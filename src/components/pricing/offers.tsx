@@ -2,9 +2,9 @@ import type { PricingFields } from "./types";
 
 const PricingOffers = ({ data }: { data: PricingFields }) => {
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-4/5 mx-auto">
-        <h3 className="font-playfair text-primary pb-3 text-4xl uppercase mb-16">
+    <section className="py-20 md:py-0 md:px-6">
+      <div className="md:max-w-4/5 px-6 md:px-0 mx-auto">
+        <h3 className="font-playfair text-primary pb-5 text-4xl uppercase">
           {data.title4}
         </h3>
 

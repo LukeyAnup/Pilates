@@ -81,7 +81,7 @@ export default function Classes() {
           <h2 className="font-playfair text-white">
             Explore our pilates Classes
           </h2>
-          <p className="text-white">
+          <p className="text-white px-2">
             Find the perfect class to match your fitness level and goals.
           </p>
         </div>
@@ -204,7 +204,7 @@ export default function Classes() {
       </section>
       {/* //Mobile */}
       <section className="relative bg-primary md:hidden py-20">
-        <div className="relative z-10 max-w-60 bg-white py-20">
+        <div className="relative z-10 max-w-60 bg-white py-15 px-4">
           <h4 className="text-xl sm:text-2xl lg:text-3xl font-serif text-primary mb-2">
             {data.instructorName}
           </h4>
@@ -217,9 +217,9 @@ export default function Classes() {
         </div>
 
         {instructorImgUrl && (
-          <div className="absolute top-1/2 left-[25%] -translate-y-1/2 w-[70%] z-0">
-            <div className="border p-4 border-white rounded-bl-[165px] rounded-br-[165px]">
-              <div className="w-full h-64 sm:h-80 lg:h-96 rounded-bl-[165px] rounded-br-[165px] overflow-hidden">
+          <div className="absolute top-1/2 left-[45%] -translate-y-1/2 z-0">
+            <div className="border p-4 border-white rounded-bl-[181px] rounded-br-[181px]">
+              <div className="w-[168px] h-[200px] rounded-bl-[165px] rounded-br-[165px] overflow-hidden">
                 <img
                   src={instructorImgUrl}
                   alt={data.instructorName || "Instructor"}

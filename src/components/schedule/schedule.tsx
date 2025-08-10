@@ -40,13 +40,13 @@ export default function SchedulePage() {
           <h2 className="font-playfair text-white">
             Explore our pilates Schedule
           </h2>
-          <p className="text-white">
+          <p className="text-white px-2">
             Find the perfect class to match your fitness level and goals.
           </p>
         </div>
       </div>
 
-      <div className="pt-10 pb-6 max-w-4/5 mx-auto">
+      <div className="hidden md:block pt-10 pb-6 max-w-4/5 mx-auto">
         <h3 className="font-playfair text-primary uppercase text-[36px] font-bold">
           {data.titleTwo}
         </h3>
@@ -133,9 +133,6 @@ export default function SchedulePage() {
         <PricingCheckout data={data} />
       </div>
       <PilatesTabs />
-      {/* <ReformerPilates entryId="7wSAOVmN4R0jyvkQzWBuRO" />
-      <ReformerPilates entryId="4BwAfdE9rijmGxG9AK1LNQ" />
-      <ReformerPilates entryId="5ditJCXyIHQjUTGn1dwCqb" /> */}
     </div>
   );
 }

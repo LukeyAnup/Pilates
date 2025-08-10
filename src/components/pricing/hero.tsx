@@ -123,7 +123,7 @@ const PricingHero = ({ data }: { data: PricingFields }) => {
       </div>
 
       {/* Mobile */}
-      <div className="md:hidden px-6 bg-secondary">
+      <div className="md:hidden px-6 py-6 bg-secondary">
         <div className="md:hidden text-3xl font-bold py-8 font-playfair capitalize text-primary">
           {data.titleTwo}
         </div>
@@ -151,21 +151,26 @@ const PricingHero = ({ data }: { data: PricingFields }) => {
         </div>
 
         <div className="uppercase flex justify-between font-montserrat">
-          <div className="flex">
-            <div className="font-semibold font-montserrat">Time:</div>
-            <div className="flex">
-              <div>7:00AM-9:00AM</div>
-              <div>5:00pm-7:00am</div>
+          {/* Left Column */}
+          <div className="flex gap-2 items-center">
+            <div className="font-semibold text-sm">Time:</div>
+            <div className="flex flex-col text-sm">
+              <div>7:00 AM - 9:00 AM</div>
+              <div>5:00 PM - 7:00 PM</div>
             </div>
           </div>
-          <div>
-            <div className="flex">
-              <div className="font-semibold">break:</div>
-              <div>1:00 pm - 4:00 pm</div>
-            </div>
-            <div className="flex">
-              <div className="font-semibold">close:</div>
-              <div>7:30 Pm</div>
+
+          {/* Right Column */}
+          <div className="flex">
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2">
+                <div className="font-semibold text-sm">Break:</div>
+                <div className="text-sm">1:00 PM - 4:00 PM</div>
+              </div>
+              <div className="flex gap-2">
+                <div className="font-semibold text-sm">Close:</div>
+                <div className="text-sm">7:30 PM</div>
+              </div>
             </div>
           </div>
         </div>

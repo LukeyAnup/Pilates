@@ -69,7 +69,7 @@ export default function GetGlimpse() {
           <img
             src={images[0]}
             alt="glimpse-1"
-            className="w-full h-[500px] object-cover rounded-bl-[190px] rounded-tl-none rounded-tr-none rounded-br-none"
+            className="w-full h-[500px] object-cover md:rounded-bl-[190px] rounded-tl-none rounded-tr-none rounded-br-none"
           />
         )}
 
