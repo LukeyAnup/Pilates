@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import client from "../contentfulClient";
 import type { FooterSkeleton } from "../types/Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   const [data, setData] = useState<FooterSkeleton["fields"] | null>(null);
 
   useEffect(() => {
@@ -45,16 +48,28 @@ export default function Footer() {
                   {data.footerLinks1}
                 </h3>
                 <ul className="space-y-1.5 sm:space-y-2">
-                  <li className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer">
+                  <li
+                    onClick={() => navigate("/")}
+                    className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer"
+                  >
                     {data.about}
                   </li>
-                  <li className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer">
+                  <li
+                    onClick={() => navigate("/classes")}
+                    className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer"
+                  >
                     {data.classes}
                   </li>
-                  <li className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer">
+                  <li
+                    onClick={() => navigate("/pricing")}
+                    className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer"
+                  >
                     {data.schedule}
                   </li>
-                  <li className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer">
+                  <li
+                    onClick={() => navigate("/pricing")}
+                    className="text-xs sm:text-sm lg:text-base hover:text-primary transition-colors cursor-pointer"
+                  >
                     {data.pricing}
                   </li>
                 </ul>

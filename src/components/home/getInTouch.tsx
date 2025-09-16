@@ -5,8 +5,10 @@ import type {
   GetInTouchFields,
   GetInTouchSkeleton,
 } from "../../types/GetInTouch";
+import { useNavigate } from "react-router-dom";
 
 export default function GetInTouch() {
+  const navigate = useNavigate();
   const [data, setData] = useState<GetInTouchFields | null>(null);
 
   useEffect(() => {
@@ -57,7 +59,10 @@ export default function GetInTouch() {
           </p>
         </button>
 
-        <button className="relative hidden md:block overflow-hidden px-20 py-2 border border-primary cursor-pointer group">
+        <button
+          onClick={() => navigate("/contact")}
+          className="relative hidden md:block overflow-hidden px-20 py-2 border border-primary cursor-pointer group"
+        >
           {/* Sliding background */}
           <span className="absolute inset-0 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
 

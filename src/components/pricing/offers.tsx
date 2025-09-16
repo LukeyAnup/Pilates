@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import type { PricingFields } from "./types";
 
 const PricingOffers = ({ data }: { data: PricingFields }) => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 md:py-0 md:px-6">
       <div className="md:max-w-4/5 px-6 md:px-0 mx-auto">
@@ -14,16 +16,19 @@ const PricingOffers = ({ data }: { data: PricingFields }) => {
               title: data.subTitle1,
               image: data.subTitleImg1?.fields?.file?.url,
               description: data.title4des1,
+              route: "/classes/reformer-pilates",
             },
             {
               title: data.subTitle2,
               image: data.subTitleImg2?.fields?.file?.url,
               description: data.title4des2,
+              route: "/classes/yoga",
             },
             {
               title: data.subTitle3,
               image: data.subTitleImg3?.fields?.file?.url,
               description: data.title4des3,
+              route: "/classes/barre",
             },
           ].map((service, index) => (
             <div
@@ -44,7 +49,10 @@ const PricingOffers = ({ data }: { data: PricingFields }) => {
                 <p className="mb-4 font-montserrat text-text-tertiary text-base tracking-normal leading-7">
                   {service.description}
                 </p>
-                <button className="relative overflow-hidden px-20 py-2 border border-primary cursor-pointer group">
+                <button
+                  onClick={() => navigate(service.route)}
+                  className="relative overflow-hidden px-20 py-2 border border-primary cursor-pointer group"
+                >
                   {/* Sliding background */}
                   <span className="absolute inset-0 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
 

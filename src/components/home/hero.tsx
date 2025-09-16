@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Asset } from "contentful";
 import client from "../../contentfulClient";
+import Loading from "../loading/loading";
 
 type HeroFields = {
   heroImg?: Asset;
@@ -14,6 +15,7 @@ type HeroSectionSkeleton = {
 export default function Hero() {
   const [heroUrl, setHeroUrl] = useState<string | null>(null);
   const [logoUrl, setLogoUrl] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchHeroSection() {
@@ -36,11 +38,21 @@ export default function Hero() {
         if (logoImgUrl) setLogoUrl(`https:${logoImgUrl}`);
       } catch (err) {
         console.error("Failed to fetch hero:", err);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchHeroSection();
   }, []);
+
+  if (loading) {
+    return (
+      <section className="relative overflow-hidden h-screen flex justify-center items-center">
+        <Loading />
+      </section>
+    );
+  }
 
   return (
     <section className="relative overflow-hidden h-screen">

@@ -85,7 +85,7 @@ export default function JoinOurClass() {
           </div>
         </div>
       </section>
-      <p className="absolute uppercase hidden md:block font-bold -left-[320px] top-96 text-9xl text-primary opacity-40 -rotate-90">
+      <p className="absolute uppercase hidden md:block font-bold -left-[305px] top-96 text-9xl text-primary opacity-40 -rotate-90">
         Strength
       </p>
 

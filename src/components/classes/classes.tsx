@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Asset } from "contentful";
 import client from "../../contentfulClient";
 import navImg from "../../assets/navImg.jpg";
+import Loading from "../loading/loading";
 
 type ClassesFields = {
   classesHeroBg?: Asset;
@@ -22,6 +23,7 @@ type ClassesSkeleton = {
 };
 
 export default function Classes() {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState<ClassesFields | null>(null);
   const [heroBgUrl, setHeroBgUrl] = useState<string | null>(null);
   const [instructorImgUrl, setInstructorImgUrl] = useState<string | null>(null);
@@ -53,11 +55,21 @@ export default function Classes() {
         if (instructorImgUrl) setInstructorImgUrl(`https:${instructorImgUrl}`);
       } catch (err) {
         console.error("Failed to fetch Classes data:", err);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchClasses();
   }, []);
+
+  if (loading) {
+    return (
+      <section className="relative overflow-hidden h-screen flex justify-center items-center">
+        <Loading />
+      </section>
+    );
+  }
 
   if (!data) return null;
 
@@ -92,7 +104,7 @@ export default function Classes() {
             <img
               src={heroBgUrl}
               alt="Pilates Studio"
-              className="w-full h-[100vh] object-cover"
+              className="w-full h-full object-cover"
             />
           )}
         </div>

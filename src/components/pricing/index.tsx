@@ -1,33 +1,42 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import client from "../../contentfulClient";
 import PricingHero from "./hero";
-import type {PricingFields} from "./types";
+import type { PricingFields } from "./types";
 import PricingCheckout from "./checkout";
 import PricingOffers from "./offers";
+import Loading from "../loading/loading";
 
 const Pricing = () => {
   const [data, setData] = useState<PricingFields | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     client
-      .getEntries({content_type: "pricing"}) // use your actual content type ID
+      .getEntries({ content_type: "pricing" })
       .then((res) => {
         if (res.items.length > 0) {
           setData(res.items[0].fields);
         }
-      });
+      })
+      .finally(() => setLoading(false));
   }, []);
 
-  if (!data) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center bg-background">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <PricingHero data={data} />
+      {data && <PricingHero data={data} />}
       {/* Pricing Section */}
-      <PricingCheckout data={data} />
+      {data && <PricingCheckout data={data} />}
       {/* Services Section */}
-      <PricingOffers data={data} />
+      {data && <PricingOffers data={data} />}
     </div>
   );
 };

@@ -101,7 +101,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <p className="absolute uppercase font-bold text-6xl -left-3 -bottom-54 md:text-9xl md:-left-7 text-primary opacity-20">
+      <p className="absolute uppercase font-bold text-6xl -left-3 -bottom-54 md:-bottom-46 md:text-9xl md:-left-1 text-primary opacity-20">
         Balance
       </p>
     </div>

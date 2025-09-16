@@ -47,12 +47,12 @@ type ReformerPilatesSkeleton = {
   contentTypeId: "reformerPilates";
 };
 
-export default function ReformerPilates() {
+export default function Barre() {
   const [data, setData] = useState<ReformerPilatesFields | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const entryId = "4BwAfdE9rijmGxG9AK1LNQ";
+  const entryId = "7wSAOVmN4R0jyvkQzWBuRO";
 
   useEffect(() => {
     async function fetchReformerPilates() {
@@ -138,15 +138,15 @@ export default function ReformerPilates() {
         }}
       >
         <div className="text-center">
-          <h2 className="font-playfair text-white">Reformer Pilates</h2>
+          <h2 className="font-playfair text-white">Barre</h2>
           <p className="text-white px-2">
             Find the perfect class to match your fitness level and goals.
           </p>
         </div>
       </div>
       <div className="container mx-auto space-y-4 grid md:grid-cols-3 px-6">
-        <div className="col-span-0 md:col-span-2">
-          <div className="flex flex-col gap-4 pt-8">
+        <div className="col-span-0 md:col-span-2 pt-8">
+          <div className="flex flex-col gap-4">
             <h4 className="font-playfair text-primary">{data.classTitle}</h4>
             <p className="text-gray-700">{data.classDesc}</p>
           </div>

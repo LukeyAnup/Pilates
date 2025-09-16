@@ -4,6 +4,7 @@ import client from "../../contentfulClient";
 import phoneSvg from "../../assets/icons/phone.svg";
 import emailSvg from "../../assets/icons/mail.svg";
 import navImg from "../../assets/navImg.jpg";
+import Loading from "../loading/loading";
 
 type AboutUsFields = {
   aboutHeading?: string;
@@ -20,6 +21,7 @@ type AboutUsSkeleton = {
 };
 
 export default function ContactUs() {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState<AboutUsFields | null>(null);
   const [locationImgUrl, setLocationImgUrl] = useState<string | null>(null);
 
@@ -44,11 +46,21 @@ export default function ContactUs() {
         if (imgUrl) setLocationImgUrl(`https:${imgUrl}`);
       } catch (err) {
         console.error("Failed to fetch About Us data:", err);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchAboutUs();
   }, []);
+
+  if (loading) {
+    return (
+      <section className="relative overflow-hidden h-screen flex justify-center items-center">
+        <Loading />
+      </section>
+    );
+  }
 
   if (!data) return null;
 
@@ -193,18 +205,23 @@ export default function ContactUs() {
 
           {/* Image Section */}
           {locationImgUrl && (
-            <div className="relative w-full h-64 sm:h-80 lg:h-[400px] order-first lg:order-last border-2 border-primary p-4">
-              <img
-                src={locationImgUrl}
-                alt="Location"
-                className="w-full h-full object-cover"
-              />
+            <div>
+              <div className="relative w-full h-64 sm:h-80 lg:h-[400px] order-first lg:order-last border-2 border-primary p-4">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.9112822089314!2d85.33613571468798!3d27.720025361552075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1944e94d69ef%3A0xab6386f627d63cab!2sBody%20Love%20Pilates!5e0!3m2!1sen!2snp!4v1754841323048!5m2!1sen!2snp"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
           )}
         </div>
       </div>
       {/* //Mobile */}
-      <div className="px-6">
+      <div className="px-6 md:hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-10">
           {/* Content Section */}
           <div className="flex flex-col w-full max-w-lg mx-auto lg:mx-0 lg:max-w-none lg:pr-8">
@@ -217,9 +234,23 @@ export default function ContactUs() {
               <p className="font-montserrat mb-6">{data.aboutSubheading}</p>
             )}
 
+            {/* Image Section */}
+            {locationImgUrl && (
+              <div className="relative w-full h-64 sm:h-80 lg:h-[400px] lg:order-last border-2 border-primary p-4">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.9112822089314!2d85.33613571468798!3d27.720025361552075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1944e94d69ef%3A0xab6386f627d63cab!2sBody%20Love%20Pilates!5e0!3m2!1sen!2snp!4v1754841323048!5m2!1sen!2snp"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            )}
+
             {/* Simple Contact Form */}
             <form
-              className="space-y-4 mb-6 w-full"
+              className="space-y-4 mb-6 mt-6 w-full"
               onSubmit={(e) => {
                 e.preventDefault(); /* handle submit here */
               }}
@@ -314,17 +345,6 @@ export default function ContactUs() {
               </div>
             </div>
           </div>
-
-          {/* Image Section */}
-          {locationImgUrl && (
-            <div className="relative w-full h-64 sm:h-80 lg:h-[400px] order-first lg:order-last border-2 border-primary p-4">
-              <img
-                src={locationImgUrl}
-                alt="Location"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
         </div>
       </div>
     </section>

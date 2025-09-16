@@ -47,12 +47,11 @@ type ReformerPilatesSkeleton = {
   contentTypeId: "reformerPilates";
 };
 
-export default function ReformerPilates() {
+export default function Yoga() {
   const [data, setData] = useState<ReformerPilatesFields | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const entryId = "4BwAfdE9rijmGxG9AK1LNQ";
+  const entryId = "5ditJCXyIHQjUTGn1dwCqb";
 
   useEffect(() => {
     async function fetchReformerPilates() {
@@ -138,7 +137,7 @@ export default function ReformerPilates() {
         }}
       >
         <div className="text-center">
-          <h2 className="font-playfair text-white">Reformer Pilates</h2>
+          <h2 className="font-playfair text-white">Mat Pilates/Yoga</h2>
           <p className="text-white px-2">
             Find the perfect class to match your fitness level and goals.
           </p>

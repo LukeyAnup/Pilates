@@ -114,7 +114,7 @@ export default function PilatesTabs() {
       {/* Tab Content */}
       <div className="tab-content">
         <div>
-          <ReformerPilates entryId={activeTab.entryId} />
+          <ReformerPilates />
         </div>
       </div>
     </div>
